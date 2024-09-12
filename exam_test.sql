@@ -10,7 +10,9 @@
 */
 
 -- 2. 조건에 맞게 CREATE TABLE 2개 생성 (사용할 DB는 알려줌)
+DROP DATABASE IF EXISTS testexam;
 CREATE DATABASE testexam;
+USE testexam;
 CREATE TABLE test1
     (userId CHAR(8) NOT NULL PRIMARY KEY,
      name CHAR(5) NOT NULL,
@@ -28,8 +30,8 @@ CREATE TABLE test2
      FOREIGN KEY(userId) REFERENCES test1(userId));
 
 -- 3. 2번 기준으로 데이터 입력
-INSERT INTO test1 VALUES ('tester1', '테스터1', '성남', 32, '01055559876');
-INSERT INTO test2 VALUES (NULL, 'tester1', 'item1', 'group_a', 5000, 4);
+INSERT INTO test1 VALUES ('tester1', '테스터1', '성남', 32, '01055559876', 181);
+INSERT INTO test2 VALUES (NULL, 'tester1', 'item1', 'gn_A', 5000, 4);
 
 -- 4. 조건을 이용하여, (특정테이블에 열 추가) ALTER TABLE 후에 INSERT INTO 데이터 삽입
 ALTER TABLE test1
@@ -37,13 +39,14 @@ ALTER TABLE test1
 ALTER TABLE test2
     ADD CONSTRAINT PK_num_test2_TABLE
     PRIMARY KEY (num);
-UPDATE test1 SET birthDate = '2002-06-15' WHERE userId = 'test1';
-INSERT INTO test2 VALUES (NULL, 'tester3', 'goods1', 'idol_group', 2000, 2)
-    ON DUPLICATE KEY UPDATE prodName = 'goods1', groupName = 'idol_group';
+UPDATE test1 SET birthDate = '2002-06-15' WHERE userId = 'tester1';
+INSERT INTO test2 VALUES (NULL, 'tester3', 'goods1', 'ig_A', 2000, 2)
+    ON DUPLICATE KEY UPDATE prodName = 'goods1', groupName = 'ig_A';
+-- 필요한 경우 삭제 DELETE FROM testexam.test2 WHERE num = 5;
 
 -- 5. 조건에 맞는 쿼리문 작성1
 SELECT * FROM test1
-    WHERE;
+    WHERE height IS NULL;;
 
 -- 6. JOIN
 SELECT t1.userId, t1.name, t2.prodName, t2.groupName
