@@ -2,13 +2,13 @@
 chapter02 에 사용하는 database, table 생성 쿼리
 */
 
-# 1. DATABASE CREATE
+-- 1. DATABASE CREATE
 CREATE DATABASE dev_sqldb;
 
-# 2. dev_sqldb 사용 선언
+-- 2. dev_sqldb 사용 선언
 USE dev_sqldb;
 
-# 3. TABLE CREATE
+-- 3. TABLE CREATE
 CREATE TABLE dev_sqldb.member_table
 	(no INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
      userId CHAR(8) NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE dev_sqldb.member_table
      address VARCHAR(15),
      phoneNumber CHAR(13));
 
-# 4. INSERT DATA
+-- 4. INSERT DATA
 INSERT INTO dev_sqldb.member_table VALUES (NULL, 'jhw0927', '장혜원', 28, '경기도 성남시 분당구', '010-1234-0927');
 INSERT INTO dev_sqldb.member_table VALUES (NULL, 'sks99', '신기성', 23, '경기도 성남시 중원구', '010-1234-9999');
 INSERT INTO dev_sqldb.member_table VALUES (NULL, 'sks99', '신기성', 23, '경기도 성남시 중원구', '010-1234-9999');
@@ -30,7 +30,5 @@ INSERT INTO dev_sqldb.member_table VALUES (NULL, 'lee7942', '이민지', 20, '�
 INSERT INTO dev_sqldb.member_table VALUES (NULL, 'choi5819', '최기혁', 22, '서울시 성북구 혜화로', '010-1234-5819');
 INSERT INTO dev_sqldb.member_table VALUES (NULL, 'hangaj11', '한가정', 30, '서울시 중구 남대문로', '010-1234-3011');
 
-# 5. UPDATE NO3 data : 신기성
+-- 5. UPDATE NO3 data : 신기성
 UPDATE dev_sqldb.member_table SET phoneNumber = '010-1234-8282' WHERE no = 3;
-
-
