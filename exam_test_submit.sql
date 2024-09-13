@@ -96,6 +96,10 @@ INSERT INTO TEST_STUDENT VALUES (955011, '최형만', '사학', 4, 96, NULL, NUL
 
 -- [문제9] 쿼리문을 작성 하세요
 -- 조건1) 컴퓨터 학과에서 평균점수보다 높은 학생들을 정보통신 학과로 이름을 바꾸는 쿼리문을 작성 하세요
+-- 진짜 정답!!
+UPDATE TEST_STUDENT SET 학과 = '정보통신'
+	WHERE 점수 > (SELECT AVG(점수) FROM STUDENT) AND 학과 = '컴퓨터';
+
 -- error Code: 1093. You can't specify target table 'TEST_STUDENT' for update in FROM clause
 UPDATE TEST_STUDENT SET 학과 = '정보통신'
 	WHERE 학과 = '컴퓨터' AND 점수 > (SELECT avg(점수) FROM TEST_STUDENT WHERE 학과 = '컴퓨터');
