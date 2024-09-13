@@ -33,3 +33,13 @@ SELECT sc1.stdName AS '학생이름', s1.address AS '지역', sc1.clubName AS '�
 	JOIN stdtbl s1 ON sc1.stdName = s1.stdName
     JOIN clubtbl c1 ON sc1.clubName = c1.clubName
     ORDER BY s1.stdName;
+
+-- 4. UNION, UNION ALL 실습
+-- UNION : 중복제거, UNION ALL : 중복도 출력
+SELECT stdName, address FROM stdtbl
+	UNION
+SELECT clubName, roomNo FROM clubtbl;
+
+SELECT stdName, address FROM stdtbl
+	UNION ALL
+SELECT clubName, roomNo FROM clubtbl;

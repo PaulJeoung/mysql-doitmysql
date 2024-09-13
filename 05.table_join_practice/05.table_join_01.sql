@@ -21,3 +21,12 @@ SELECT usr.userId AS '아이디', usr.name AS '이름', buy.prodName AS '구매�
 	JOIN sqldb.buytbl buy
     ON usr.userId = buy.userId
     ORDER BY usr.userId ASC;
+
+-- 4. IN, NOT IN 실습
+-- 4-1. 전화 번호가 없는 사람들 조회
+SELECT name, concat(mobile1, mobile2) AS '전화번호' FROM usertbl
+	WHERE name IN (SELECT name FROM usertbl WHERE mobile1 is NULL);
+
+--4-2. 전화 번호가 있는 사람들 모두 조회
+SELECT name, concat(mobile1, mobile2) AS '전화번호' FROM usertbl
+	WHERE name NOT IN (SELECT name FROM usertbl WHERE mobile1 is NULL);
