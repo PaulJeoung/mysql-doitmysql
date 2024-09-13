@@ -55,8 +55,8 @@ UPDATE STUDENT SET 주소 = '경기도 안산시 단원구', 연락처 = '010-85
 SELECT * FROM STUDENT 
 	WHERE 점수 >= 85
     ORDER BY 학번 ASC;
--- 조건2) STUDENT 테이블에서 2학년 이상인 데이터를 조회하세요
-SELECT * FROM STUDENT 
+-- 조건2) STUDENT 테이블에서 2학년 이상인 학생 수를 조회하세요
+SELECT count(*) FROM STUDENT 
 	WHERE 학년 >= 2;
     
 -- [문제6] JOIN을 사용 하여 쿼리문을 작성 하세요
